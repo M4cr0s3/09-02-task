@@ -7,12 +7,11 @@ use App\Http\Controllers\LoginPageController;
 use App\Http\Controllers\RegisterPageController;
 use Illuminate\Support\Facades\Route;
 
+Route::group(['prefix' => 'auth'], function (): void {
 
-Route::group(['prefix' => 'auth'], function () {
+    Route::middleware('guest')->group(function (): void {
 
-    Route::middleware('guest')->group(function () {
-
-        Route::group(['prefix' => 'register'], function () {
+        Route::group(['prefix' => 'register'], function (): void {
 
             Route::get('/', RegisterPageController::class)
                 ->name('register.index');
@@ -22,7 +21,7 @@ Route::group(['prefix' => 'auth'], function () {
 
         });
 
-        Route::group(['prefix' => 'login'], function () {
+        Route::group(['prefix' => 'login'], function (): void {
 
             Route::get('/', LoginPageController::class)
                 ->name('login.index');

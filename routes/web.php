@@ -9,3 +9,4 @@ Route::get('/', IndexPageController::class)
     ->name('index');
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/categories.php';

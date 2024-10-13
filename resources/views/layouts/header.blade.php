@@ -28,6 +28,10 @@
                     ]) href="{{ route('register.index') }}">Регистрация</a>
                 @endguest
                 @auth()
+                    <a @class([
+                        'nav-link',
+                        'active' => request()->route()->getName() === 'categories.index',
+                    ]) href="{{ route('categories.index') }}">Категории</a>
                     <a class="nav-link" href="{{ route('logout') }}">Выход</a>
                 @endauth
             </div>
