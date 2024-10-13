@@ -1,3 +1,7 @@
+<?php
+$user = Auth::user();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="d-flex align-items-center gap-2">
@@ -28,10 +32,12 @@
                     ]) href="{{ route('register.index') }}">Регистрация</a>
                 @endguest
                 @auth()
-                    <a @class([
+                    @if($user->isAdmin())
+                        <a @class([
                         'nav-link',
                         'active' => request()->route()->getName() === 'categories.index',
                     ]) href="{{ route('categories.index') }}">Категории</a>
+                    @endif
                     <a class="nav-link" href="{{ route('logout') }}">Выход</a>
                 @endauth
             </div>
