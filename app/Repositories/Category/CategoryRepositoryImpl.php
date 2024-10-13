@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Repositories;
+namespace App\Repositories\Category;
 
 use App\DTO\Category\CreateCategoryDTO;
 use App\DTO\Category\UpdateCategoryDTO;

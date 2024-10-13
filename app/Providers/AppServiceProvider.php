@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Repositories\CategoryRepository;
-use App\Repositories\CategoryRepositoryImpl;
-use App\Repositories\UserRepository;
-use App\Repositories\UserRepositoryImpl;
+use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Category\CategoryRepositoryImpl;
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryImpl;
 use Illuminate\Support\ServiceProvider;
 
 final class AppServiceProvider extends ServiceProvider

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Repositories;
+declare(strict_types=1);
 
-use App\Http\DTO\RegisterDTO;
+namespace App\Repositories\User;
+
+use App\DTO\Auth\RegisterDTO;
 use App\Models\User;
 
 interface UserRepository
 {
-
     public function create(RegisterDTO $registerDTO): User;
 
     public function findByLogin(string $login): ?User;

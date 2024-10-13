@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\DTO\Auth\LoginDTO;
 use App\DTO\Auth\RegisterDTO;
-use App\Repositories\UserRepository;
+use App\Repositories\User\UserRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

@@ -7,7 +7,7 @@ namespace App\Services;
 use App\DTO\Category\CreateCategoryDTO;
 use App\DTO\Category\UpdateCategoryDTO;
 use App\Models\Category;
-use App\Repositories\CategoryRepository;
+use App\Repositories\Category\CategoryRepository;
 use Illuminate\Http\RedirectResponse;
 
 final readonly class CategoryService
