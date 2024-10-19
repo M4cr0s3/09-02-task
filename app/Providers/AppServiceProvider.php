@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Repositories\Article\ArticleRepository;
+use App\Repositories\Article\ArticleRepositoryImpl;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Category\CategoryRepositoryImpl;
 use App\Repositories\User\UserRepository;
@@ -19,6 +21,7 @@ final class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepository::class, UserRepositoryImpl::class);
         $this->app->bind(CategoryRepository::class, CategoryRepositoryImpl::class);
+        $this->app->bind(ArticleRepository::class, ArticleRepositoryImpl::class);
     }
 
     /**

@@ -21,6 +21,10 @@ $user = Auth::user();
                         'nav-link',
                         'active' => request()->route()->getName() === 'index',
                     ]) href="{{ route('index') }}">Главная</a>
+                <a @class([
+                        'nav-link',
+                        'active' => request()->route()->getName() === 'articles.index',
+                    ]) href="{{ route('articles.index') }}">Статьи</a>
                 @guest()
                     <a @class([
                         'nav-link',

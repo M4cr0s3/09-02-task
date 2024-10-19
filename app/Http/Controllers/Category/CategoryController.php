@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Category;
 
+use App\DTO\Category\CreateCategoryDTO;
 use App\DTO\Category\UpdateCategoryDTO;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
@@ -32,7 +33,7 @@ final readonly class CategoryController
 
     public function store(StoreRequest $request): RedirectResponse
     {
-        return $this->categoryService->store($request->convertToDTO());
+        return $this->categoryService->store($request->toDTO(CreateCategoryDTO::class));
     }
 
     public function show(Category $category): View
@@ -49,7 +50,7 @@ final readonly class CategoryController
         ]);
     }
 
-    public function update(UpdateRequest $request, Category $category): RedirectResponse
+    public function update(Category $category, UpdateRequest $request): RedirectResponse
     {
         return $this->categoryService->update(
             $request->toDTO(UpdateCategoryDTO::class),

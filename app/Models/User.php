@@ -7,6 +7,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\RoleEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -76,6 +77,14 @@ final class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->role === RoleEnum::ADMIN->value;
+    }
+
+    /**
+     * @return HasMany<Article>
+     */
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class);
     }
 
     /**
