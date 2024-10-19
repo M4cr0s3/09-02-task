@@ -10,8 +10,7 @@ trait HasDTO
 {
     /**
      * @template T
-     *
-     * @param  class-string<T>  $class
+     * @param class-string<T> $class
      * @return T
      */
     public function toDTO(string $class): DTO

@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth;
 
-use App\DTO\Auth\RegisterDTO;
-use App\DTO\Contracts\ConvertableToDTO;
 use App\Traits\HasDTO;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-final class RegisterRequest extends FormRequest implements ConvertableToDTO
+final class RegisterRequest extends FormRequest
 {
     use HasDTO;
 
@@ -66,8 +64,4 @@ final class RegisterRequest extends FormRequest implements ConvertableToDTO
         ];
     }
 
-    public function convertToDTO(): RegisterDTO
-    {
-        return $this->toDTO(RegisterDTO::class);
-    }
 }

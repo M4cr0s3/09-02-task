@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Category;
 
-use App\DTO\Category\CreateCategoryDTO;
-use App\DTO\Contracts\ConvertableToDTO;
 use App\Traits\HasDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
-final class StoreRequest extends FormRequest implements ConvertableToDTO
+final class StoreRequest extends FormRequest
 {
     use HasDTO;
 
@@ -42,10 +40,5 @@ final class StoreRequest extends FormRequest implements ConvertableToDTO
             'title.required' => 'Данное поле обязательно к заполнению.',
             'title.unique' => 'Категория с таким названием уже существует.',
         ];
-    }
-
-    public function convertToDTO(): CreateCategoryDTO
-    {
-        return $this->toDTO(CreateCategoryDTO::class);
     }
 }

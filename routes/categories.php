@@ -18,16 +18,20 @@ Route::group(['prefix' => 'categories', 'middleware' => [
     Route::post('/', [CategoryController::class, 'store'])
         ->name('categories.store');
 
-    Route::get('/{category}', [CategoryController::class, 'show'])
-        ->name('categories.show');
+    Route::group(['prefix' => '{category}'], function (): void {
 
-    Route::get('/{category}/edit', [CategoryController::class, 'edit'])
-        ->name('categories.edit');
+        Route::get('/', [CategoryController::class, 'show'])
+            ->name('categories.show');
 
-    Route::patch('/{category}', [CategoryController::class, 'update'])
-        ->name('categories.update');
+        Route::get('/edit', [CategoryController::class, 'edit'])
+            ->name('categories.edit');
 
-    Route::delete('/{category}', [CategoryController::class, 'destroy'])
-        ->name('categories.destroy');
+        Route::patch('/', [CategoryController::class, 'update'])
+            ->name('categories.update');
+
+        Route::delete('/', [CategoryController::class, 'destroy'])
+            ->name('categories.destroy');
+
+    });
 
 });

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Auth;
 
-use App\DTO\Auth\LoginDTO;
-use App\DTO\Contracts\ConvertableToDTO;
 use App\Traits\HasDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
-final class LoginRequest extends FormRequest implements ConvertableToDTO
+final class LoginRequest extends FormRequest
 {
     use HasDTO;
 
@@ -39,10 +37,5 @@ final class LoginRequest extends FormRequest implements ConvertableToDTO
                 'min:6',
             ],
         ];
-    }
-
-    public function convertToDTO(): LoginDTO
-    {
-        return $this->toDTO(LoginDTO::class);
     }
 }
