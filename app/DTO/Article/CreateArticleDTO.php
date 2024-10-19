@@ -53,18 +53,4 @@ final class CreateArticleDTO extends DTO
         $this->image = $image;
     }
 
-    /**
-     * @return array{
-     *     title: string,
-     *     content: string,
-     *     category_id: string,
-     *     time_to_read: string,
-     *     image: string|UploadedFile,
-     *     user_id: string
-     * }
-     */
-    public function toArray(): array
-    {
-        return parent::toArray();
-    }
 }
